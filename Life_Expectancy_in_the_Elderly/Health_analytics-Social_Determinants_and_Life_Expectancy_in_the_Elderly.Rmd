@@ -1,0 +1,221 @@
+---
+title: "Health analytics - Social Determinants and Life Expectancy in the Elderly"
+author: "Marco Antonio Prado Nunes and Andrezza Marques Duque"
+date: "29 de junho de 2017"
+output:
+  html_document:
+    keep_md: yes
+  pdf_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+### Contacts:
+
+```{r, results='asis', echo=FALSE}
+
+Contacts <- "Marco Antonio Prado Nunes MD PhD\nUniversity Hospital/ Federal University of Sergipe\nAracaju, Sergipe, Brazil\nEmail: nunes.ma@ufs.br\nlinkedin: https://www.linkedin.com/in/marco-nunes-538a8b57"
+
+myContacts <- function(Contacts){
+  cat(gsub(pattern = "\n", replacement = "  \n", x = Contacts))
+}
+
+myContacts(Contacts)
+```
+
+
+
+## Introduction:
+
+Population aging is a global reality and has been considered a challenge for health systems. In Brazil, aging has complex dimensions due to the velocity with which it is occurring and is causing social and health impacts. For this reason, the planning of public policies adapted to these new challenges is so necessary.
+
+## Objective:
+
+This project intends to evaluate the influence of some social and economic indicators on life expectancy, aiming to establish elements for the planning of public policies related to the health care of the elderly population.
+
+## Method:
+
+This was an ecological study of the 75 municipalities that are part of the State of Sergipe, located in the Northeast region of Brazil and has a population of 2,068,017 inhabitants, of which 8.9% (185,957) are 60 years of age or older.
+
+In this evaluation the social, demographic and health indicators were analyzed and were collected through the Information System of the Ministry of Health (DATASUS) and the Brazilian Institute of Geography and Statistics (IBGE) through the Brazilian Demographic Census at the level of disaggregation of the sectors Censuses. Elderly persons were those aged 60 or over, according to Brazilian legislation.
+
+```{r, results='asis', echo=FALSE}
+
+text <- "Indicators analyzed - Social Determinants:\no	Dependent variable\n01.	lifeExpec - Life expectancy\no	Independent variable\n01.	depRate - dependency ratio\n02.	illiteracy - Illiteracy rate among the elderly\n03.	meanIncome - Average household income per capita\n04.	income25p - Percentage of population with per capita income up to ¼ of the minimum wage\n05.	Unemploy16 - Unemployment rate of the population aged 16 years or older\n06.	gdp - Gross Domestic Product per capita\n07.	water - Percentage of households with water supply not connected to the distribution network\n08.	consultRate - Consultation rate for elderly people in primary care\n09.	visitRate - Primary care visit rate\n10.	contBenefit - Rate of the elderly that received continuous benefit"
+
+mycat <- function(text){
+  cat(gsub(pattern = "\n", replacement = "  \n", x = text))
+}
+
+mycat(text)
+```
+
+
+
+## Results:
+
+
+The purpose of this analysis was to make an inferential analysis using a multiple linear regression model taking into account life expectancy as a dependent variable and all other indicators as independent variables
+
+
+
+```{r}
+
+# Input of data
+
+elderly <- read.csv("env.csv", sep = ";")
+
+# Data preparation
+
+colnames(elderly) <- c("mun", "codigo", "depRate", "illiteracy", "meanIncome", "income25p", "Unemploy16", "gdp", "water", "garbage", "lifeExpec", "consultRate", "visitRate", "contBenefit")
+
+elderlyCor <- elderly[c("depRate", "illiteracy", "meanIncome", "income25p", "Unemploy16", "gdp", "water", "consultRate", "visitRate", "contBenefit")]
+
+# Exploratory data analysis
+
+summary(elderly$lifeExpec) 
+
+summary(elderlyCor)
+
+
+
+
+
+```
+
+
+
+
+Evaluation of the symmetry of the data through histograms
+
+
+
+```{r, echo=FALSE}
+
+attach(elderly)
+
+# Dependent variables histograms
+par(mfrow=c(1,2))
+hist(lifeExpec, main = "", xlab = "Life expectancy")
+
+
+```
+
+
+
+Due to the asymmetry of many of the independent variables, the logarithmic transformation was performed in order to prevent a small number of extraordinarily large or small observations from having an undue influence on the sum of the squares of the errors in the models.
+
+
+```{r, echo=FALSE}
+
+# Independent variables histograms
+par(mfrow=c(1,2))
+hist(depRate, main = "", xlab = "Dependency ratio"); hist(illiteracy, main = "", xlab = "Illiteracy rate among the elderly")
+
+par(mfrow=c(1,2))
+hist(meanIncome, main = "", xlab = "Average household income per capita"); hist(income25p, main = "", xlab = "Income up to ¼ of the minimum wage (%)")
+
+par(mfrow=c(1,2))
+hist(Unemploy16, main = "", xlab = "Unemployment rate"); hist(gdp, main = "", xlab = "Gross Domestic Product per capita")
+
+par(mfrow=c(1,2))
+hist(water, main = "", xlab = "Water supply network not connected (%)"); hist(consultRate, main = "", xlab = "Consultation rate in primary care")
+
+par(mfrow=c(1,2))
+hist(visitRate, main = "", xlab = "Primary care visit rate"); hist(contBenefit, main = "", xlab = "Rate of elderly continuous benefit")
+
+
+```
+
+
+
+In the first model all indicators were selected and the result showed statistical significance only for the variable dependency ratio (depRate).
+
+
+
+```{r}
+
+# First multiple linear model
+model_1 <- lm(lifeExpec ~ depRate + log(illiteracy) + log(meanIncome) + income25p + log(Unemploy16) + log(gdp) + log(water) + log(consultRate) + log(visitRate) + log(contBenefit), data = elderly)
+summary(model_1)
+```
+
+
+
+```{r}
+
+# Sum of square error (SSE)
+SSE_1 <- sum(model_1$residuals ^ 2); SSE_1
+
+# Root mean square error (RMSE)
+RMSE_1 <- sqrt(SSE_1/nrow(elderly)); RMSE_1
+```
+
+
+
+This result probably occurred due to the strong correlation between the variables Illiteracy rate among the elderly - illiteracy (r = - 0.677) and Average household income per capita - meanIncome and between this and Percentage of population with per capita income up to ¼ of the minimum wage - income25p (r = - 0.670) in a situation known as collinearity.
+
+
+
+```{r}
+
+# Correlation matrix
+cor(elderlyCor)
+
+```
+
+
+
+Therefore, another model was elaborated without the variable Average household income per capita - meanIncome.
+
+
+
+```{r}
+
+# Second multiple linear model
+model_2 <- lm(lifeExpec ~ depRate + log(illiteracy) + income25p + log(Unemploy16) + log(gdp) + log(water) + log(consultRate) + log(visitRate) + log(contBenefit), data = elderly)
+summary(model_2)
+```
+
+
+
+```{r}
+
+# Sum of square error (SSE)
+SSE_2 <- sum(model_2$residuals ^ 2); SSE_2
+
+# Root mean square error (RMSE)
+RMSE_2 <- sqrt(SSE_2/nrow(elderly)); RMSE_2
+```
+
+
+
+The two models presented a high f-statistic and a significant p-value, less than 0.05. Even though the adjustment parameters were very similar (residual standard error, adjusted R-squared, SSE, RMSE), the second model presented a more consistent result with the previously established hypothesis that social determinants could influence life expectancy.
+
+
+
+## Conclusions:
+
+
+When the indicator average household income per capita was excluded, the dependency ratio, the illiteracy rate in the elderly and the unemployment rate of the population aged 16 years or older influenced negatively in the life expectancy. Therefore, these are valuable informations for the formulation of policies related to the health care and social security of the elderly population.
+
+
+## References:
+
+Suzman R, Beard JR, Boerma T, Chatterji S. Health in an ageing world--what do we know? Lancet. 2015 Feb 7;385(9967):484-6.
+
+
+Rasella D, Machado DB, Castellanos ME, Paim J, Szwarcwald CL, Lima D, Magno L, Pedrana L, Medina MG, Penna GO, Barreto ML. Assessing the relevance of indicators in tracking social determinants and progress toward equitable population health in Brazil. Glob Health Action. 2016 Jan;9(1):29042.
+
+
+Bloom DE, Chatterji S, Kowal P, Lloyd-Sherlock P, McKee M, Rechel B, Rosenberg L, Smith JP. Macroeconomic implications of population ageing and selected policy responses. Lancet. 2015 Feb 14;385(9968):649-57.
+
+
+Veras R. Population aging today: demands, challenges and innovations. Rev Saude Publica. 2009 Jun;43(3):548-54. 
+
+
+
