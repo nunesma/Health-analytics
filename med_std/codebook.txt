@@ -1,0 +1,109 @@
+# 1 - dme - Arquivo original
+t (82.325 observações com 8 variáveis)
+turmas.csv
+t - reunião dos arquivos de turmas de 2002 a 2016
+Variaveis:
+codigo - da disciplina
+turma - de cada disciplina
+nota - nota média final de cada disciplina
+ano - ano de 2002 a 2016
+situacao - 	APROVADO; DISPENSADO; REP..FALTA; REPROVADO; TRANCADO; CANCELADO; EXCLUIDA; CUMPRIU; 				REPROVADO.POR.MÉDIA.E.POR.FALTAS; MATRICULADO; DESISTENCIA; INDEFERIDO
+periodo - 1; 2; 3; 4
+matricula - do aluno
+siape - do profesor
+
+# 2 - dme - Arquivo 
+sigaa_dme (22.788 observações com 4 variáveis)
+sigaa_dme <- data.frame(table(t$matricula, t$situacao))
+Variaveis:
+X
+matricula
+situacao
+freq
+
+# 3 - dme - Arquivo
+situacao (1.899 observações com 13 variáveis)
+situacao <- cast(sigaa_dme, matricula ~ situacao, value = 'freq')
+Variaveis:
+situacao - 	APROVADO; DISPENSADO; REP..FALTA; REPROVADO; TRANCADO; CANCELADO; EXCLUIDA; CUMPRIU; 					REPROVADO.POR.MÉDIA.E.POR.FALTAS; MATRICULADO; DESISTENCIA; INDEFERIDO
+matricula
+
+# 4 - banco da COPAC
+copac (1579 observações com 16 variáveis)
+01 - X; matricula; pais_naturalidade
+04 - uf_naturalidade; nome; sexo         
+07 - ano_nascimento; Idade_atual; Idade_no_ingresso
+10 - status; ano_ingresso; periodo_ingresso
+13 - ano_integralizacao; periodo_integralizacao; ultima_movimentação; cota
+
+# 5 - banco intermediário (os situacao que nao estao no copac)
+situacao_excesso (442 observações com 13 variáveis)
+situacao_excesso <- subset(situacao, !(situacao$matricula%in%copac$matricula))
+
+# 6 - banco intermediário (nota média por aluno)
+nota (1.899 observações com 3 variáveis)
+nota <- cast(t, matricula ~ perf, value = 'nota', fun.aggregate = "mean", na.rm=TRUE)
+Variaveis
+X
+matricula
+nota_med
+
+# 7 - banco intermediário (os situacao que nao estao no copac)
+def1 (1.457 observações com 29 variáveis)
+situacao ~ copac ~ nota
+# def0 <- merge(situacao, copac, by = 'matricula')
+# def1 <- merge(def0, nota, by = 'matricula')
+variaveis:
+X
+Situacao:
+matricula
+situacao - 	APROVADO; DISPENSADO; REP..FALTA; REPROVADO; TRANCADO; CANCELADO; EXCLUIDA; CUMPRIU; 					REPROVADO.POR.MÉDIA.E.POR.FALTAS; MATRICULADO; DESISTENCIA; INDEFERIDO
+copac:
+03 - pais_naturalidade; uf_naturalidade; nome; sexo         
+07 - ano_nascimento; Idade_atual; Idade_no_ingresso
+10 - status; ano_ingresso; periodo_ingresso
+13 - ano_integralizacao; periodo_integralizacao; ultima_movimentação; cota
+nota:
+nota_med
+
+
+# arquivos:
+copac.csv
+turmas.csv
+def1.csv
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
