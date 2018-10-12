@@ -66,6 +66,26 @@ copac:
 nota:
 nota_med
 
+# 8 - banco intermediário (os situacao que nao estao no copac)
+def (1.457 observações com 31 variáveis)
+situacao ~ copac ~ nota
+# def0 <- merge(situacao, n_periodos, by = 'matricula')
+# def1 <- merge(def0, nota, by = 'matricula')
+# def <- merge(def1, copac, by = 'matricula')
+variaveis:
+X
+Situacao:
+matricula
+situacao - 	APROVADO; DISPENSADO; REP..FALTA; REPROVADO; TRANCADO; CANCELADO; EXCLUIDA; CUMPRIU; 					REPROVADO.POR.MÉDIA.E.POR.FALTAS; MATRICULADO; DESISTENCIA; INDEFERIDO
+copac:
+03 - pais_naturalidade; uf_naturalidade; nome; sexo         
+07 - ano_nascimento; Idade_atual; Idade_no_ingresso
+10 - status; ano_ingresso; periodo_ingresso
+13 - ano_integralizacao; periodo_integralizacao; ultima_movimentação; cota
+nota:
+nota_med
+n_periodos:
+n_periodos
 
 # arquivos:
 copac.csv
@@ -103,7 +123,7 @@ periodo_integralizacao
 ultima_movimentação
 cota
 nota_med
-
+n_periodos
 
 # id
 X
@@ -141,7 +161,7 @@ cota
 Idade_atual
 Idade_no_ingresso
 nota_med
-
+n_periodos
 
 
 
@@ -157,17 +177,6 @@ ano_integralizacao
 periodo_integralizacao
 
 # categorica
-APROVADO | CUMPRIU | DISPENSADO
-DISPENSADO
-
-TRANCADO | CANCELADO | EXCLUIDA | DESISTENCIA |
-
-
-
-REPROVADO.POR.MÉDIA.E.POR.FALTAS | REP..FALTA | REPROVADO
-MATRICULADO
-
-INDEFERIDO
 pais_naturalidade
 uf_naturalidade
 sexo
@@ -180,7 +189,14 @@ cota
 Idade_atual
 Idade_no_ingresso
 nota_med
+n_periodos
 
+APROVADO | DISPENSADO
+DISPENSADO
+TRANCADO | CANCELADO | EXCLUIDA | DESISTENCIA |
+REPROVADO.POR.MÉDIA.E.POR.FALTAS | REP..FALTA | REPROVADO
+MATRICULADO
+INDEFERIDO
 
 
 
