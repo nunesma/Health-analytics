@@ -73,20 +73,130 @@ turmas.csv
 def1.csv
 
 
+Variaveis:
+X
+matricula
+APROVADO
+DISPENSADO
+REP..FALTA
+REPROVADO
+TRANCADO
+CANCELADO
+EXCLUIDA
+CUMPRIU
+REPROVADO.POR.MÉDIA.E.POR.FALTAS
+MATRICULADO
+DESISTENCIA
+INDEFERIDO
+pais_naturalidade
+uf_naturalidade
+nome
+sexo
+ano_nascimento
+Idade_atual
+Idade_no_ingresso
+status
+ano_ingresso
+periodo_ingresso
+ano_integralizacao
+periodo_integralizacao
+ultima_movimentação
+cota
+nota_med
+
+
+# id
+X
+matricula
+nome
+
+# tempo
+ano_ingresso
+periodo_ingresso
+ano_integralizacao
+periodo_integralizacao
+
+# categorica
+APROVADO
+DISPENSADO
+REP..FALTA
+REPROVADO
+TRANCADO
+CANCELADO
+EXCLUIDA
+CUMPRIU
+REPROVADO.POR.MÉDIA.E.POR.FALTAS
+MATRICULADO
+DESISTENCIA
+INDEFERIDO
+pais_naturalidade
+uf_naturalidade
+sexo
+ano_nascimento
+status
+ultima_movimentação
+cota
+
+# numerica
+Idade_atual
+Idade_no_ingresso
+nota_med
 
 
 
 
+# id
+X
+matricula
+nome
+
+# tempo
+ano_ingresso
+periodo_ingresso
+ano_integralizacao
+periodo_integralizacao
+
+# categorica
+APROVADO | CUMPRIU | DISPENSADO
+DISPENSADO
+
+TRANCADO | CANCELADO | EXCLUIDA | DESISTENCIA |
+
+
+
+REPROVADO.POR.MÉDIA.E.POR.FALTAS | REP..FALTA | REPROVADO
+MATRICULADO
+
+INDEFERIDO
+pais_naturalidade
+uf_naturalidade
+sexo
+ano_nascimento
+status
+ultima_movimentação
+cota
+
+# numerica
+Idade_atual
+Idade_no_ingresso
+nota_med
 
 
 
 
-
-
-
-
-
-
+table(banco$ ); 
+table(banco$APROVADO); 
+table(banco$DISPENSADO); 
+table(banco$REP..FALTA); 
+table(banco$REPROVADO); 
+table(banco$TRANCADO); 
+table(banco$CANCELADO); 
+table(banco$EXCLUIDA); 
+table(banco$CUMPRIU); 
+table(banco$REPROVADO.POR.MÉDIA.E.POR.FALTAS); 
+table(banco$MATRICULADO); 
+table(banco$DESISTENCIA); 
+table(banco$INDEFERIDO)
 
 
 
