@@ -1,7 +1,8 @@
 setwd("C:/Users/nunes/AI/ml/Health-analytics/med_std/explore")
 
 # banco = read.csv("def1.csv")
-banco = read.csv("def.csv")
+def = read.csv("def.csv")
+banco <- subset(def, status == "ATIVO" | status == "CONCLUÍDO" | status == "FORMANDO")
 
 library(FSA)
 
@@ -11,12 +12,16 @@ str(banco)
 
 # sexo
 banco$sex <- ifelse(banco$sexo == "F","Female","Male")
+banco$sex <- as.factor(banco$sex)
 banco$Sergipe <- ifelse(banco$uf_naturalidade == "SE","Yes","No")
+banco$Sergipe <- as.factor(banco$Sergipe)
+banco$concluded <- ifelse(banco$status == "CONCLUÍDO","Yes","No")
+banco$concluded <- as.factor(banco$concluded)
 banco$quotas <- ifelse(banco$ano_ingresso >= 2010 & (banco$cota=="B"|banco$cota=="C"|banco$cota=="D1"|banco$cota=="D2"|
                                                       banco$cota=="D3"|banco$cota=="D4"|banco$cota=="E"|
                                                       banco$cota=="F"|banco$cota=="G"|banco$cota=="H"|
                                                       banco$cota=="I"|banco$cota=="PD"),"Yes","No")
-
+banco$quotas <- as.factor(banco$quotas)
 
 table(banco$uf_naturalidade); table(banco$Sergipe)
 
