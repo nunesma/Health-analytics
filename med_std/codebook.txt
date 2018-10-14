@@ -1,3 +1,16 @@
+2013 LEGENDA:
+
+GRUPO D - Todos os candidatos, qualquer que seja a procedência escolar, renda familiar ou grupo étnico racial.
+GRUPO E - Candidatos da escola pública com renda familiar bruta superior a 1,5 (um vírgula cinco) salário-mínimo per capita que não se
+autodeclararem pretos, pardos e indígenas.
+GRUPO F - Candidatos da escola pública com renda familiar bruta superior a 1,5 (um vírgula cinco) salário-mínimo per capita que se 
+autodeclararem pretos, pardos e indígenas.
+GRUPO G - Candidatos da escola pública com renda familiar bruta igual ou inferior a 1,5 (um vírgula cinco) salário-mínimo per capita que não se autodeclararem pretos, pardos e indígenas.
+GRUPO H - Candidatos da escola pública com renda familiar bruta igual ou inferior a 1,5 (um vírgula cinco) salário-mínimo per capita que se autodeclararem pretos, pardos e indígenas.
+N. ESPECIAIS - Candidatos portadores de necessidades educacionais especiais.
+
+
+
 # 1 - dme - Arquivo original
 t (82.325 observações com 8 variáveis)
 turmas.csv
@@ -198,38 +211,50 @@ REPROVADO.POR.MÉDIA.E.POR.FALTAS | REP..FALTA | REPROVADO
 MATRICULADO
 INDEFERIDO
 
+str(banco)
 
 
-table(banco$ ); 
-table(banco$APROVADO); 
-table(banco$DISPENSADO); 
-table(banco$REP..FALTA); 
-table(banco$REPROVADO); 
-table(banco$TRANCADO); 
-table(banco$CANCELADO); 
-table(banco$EXCLUIDA); 
-table(banco$CUMPRIU); 
-table(banco$REPROVADO.POR.MÉDIA.E.POR.FALTAS); 
-table(banco$MATRICULADO); 
-table(banco$DESISTENCIA); 
-table(banco$INDEFERIDO)
+table(banco$pais_naturalidade)
+table(banco$uf_naturalidade)
+table(banco$sexo)
+table(banco$ano_nascimento)
+table(banco$status)
+table(banco$ultima_movimentação)
+table(banco$cota)
+
+table(banco$pais_naturalidade, banco$ano_ingresso)
+table(banco$uf_naturalidade, banco$ano_ingresso)
+table(banco$sexo, banco$ano_ingresso)
+table(banco$ano_nascimento, banco$ano_ingresso)
+table(banco$status, banco$ano_ingresso)
+table(banco$ultima_movimentação, banco$ano_ingresso)
+table(banco$cota, banco$ano_ingresso)
+
+
+summary(banco)
+
+library(FSA)
+
+Summarize(banco$)
+# numerica
+Summarize(banco$Idade_atual)
+Summarize(banco$Idade_no_ingresso)
+Summarize(banco$nota_med)
+Summarize(banco$n_periodos)
 
 
 
 
 
+# affirmative action and race-based quotas
+banco$cota2 <- ifelse(banco$ano_ingresso >= 2010 & (banco$cota=="B"|banco$cota=="C"|
+banco$cota=="D1"|banco$cota=="D2"|banco$cota=="D3"|banco$cota=="D4"|banco$cota=="E"|
+banco$cota=="F"|banco$cota=="G"|banco$cota=="H"|banco$cota=="I"|banco$cota=="PD"),"Yes","No")
 
 
+C:\Users\nunes\
 
-
-
-
-
-
-
-
-
-
-
-
+AI/ml/Health-analytics/med_std/explore
+Update R scrit for data analysis of medical students performance
+Data analysis of medical students performance: a fifteen years time
 
