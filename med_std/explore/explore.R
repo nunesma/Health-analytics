@@ -34,7 +34,6 @@ table(banco$uf_naturalidade)
 table(banco$sexo)
 table(banco$ano_nascimento)
 table(banco$status)
-table(banco$ultima_movimentação)
 table(banco$cota)
 
 table(banco$pais_naturalidade, banco$ano_ingresso)
