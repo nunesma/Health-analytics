@@ -10,7 +10,7 @@ names(banco)
 
 str(banco)
 
-# sexo
+# Preparing dataset
 banco$sex <- ifelse(banco$sexo == "F","Female","Male")
 banco$sex <- as.factor(banco$sex)
 banco$Sergipe <- ifelse(banco$uf_naturalidade == "SE","Yes","No")
@@ -22,8 +22,10 @@ banco$quotas <- ifelse(banco$ano_ingresso >= 2010 & (banco$cota=="B"|banco$cota=
                                                       banco$cota=="F"|banco$cota=="G"|banco$cota=="H"|
                                                       banco$cota=="I"|banco$cota=="PD"),"Yes","No")
 banco$quotas <- as.factor(banco$quotas)
+banco$aproved <- banco$APROVADO + banco$DISPENSADO
+banco$reproved <- banco$REP..FALTA + banco$REPROVADO + banco$REPROVADO.POR.MÉDIA.E.POR.FALTAS
 
-table(banco$uf_naturalidade); table(banco$Sergipe)
+ table(banco$uf_naturalidade); table(banco$Sergipe)
 
 table(banco$Sergipe, banco$ano_ingresso)
 
