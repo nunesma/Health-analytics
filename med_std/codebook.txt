@@ -100,6 +100,13 @@ nota_med
 n_periodos:
 n_periodos
 
+# cria a variavel semestre
+banco$periodo_ingresso <- banco$periodo_ingresso * 0.1
+banco$semester <- banco$ano_ingresso + banco$periodo_ingresso
+
+"periodo_ingresso"
+"ano_ingresso"
+
 # arquivos:
 copac.csv
 turmas.csv
@@ -258,3 +265,23 @@ AI/ml/Health-analytics/med_std/explore
 Update R scrit for data analysis of medical students performance
 Data analysis of medical students performance: a fifteen years time
 
+ [1] "X"                                "matricula"                        "APROVADO"                        
+ [4] "CANCELADO"                        "CUMPRIU"                          "DESISTENCIA"                     
+ [7] "DISPENSADO"                       "EXCLUIDA"                         "INDEFERIDO"                      
+[10] "MATRICULADO"                      "REP..FALTA"                       "REPROVADO"                       
+[13] "REPROVADO.POR.MÉDIA.E.POR.FALTAS" "TRANCADO"                         "n_periodos"                      
+[16] "X.x"                              "nota_med"                         "X.y"                             
+[19] "pais_naturalidade"                "uf_naturalidade"                  "nome"                            
+[22] "sexo"                             "ano_nascimento"                   "Idade_atual"                     
+[25] "Idade_no_ingresso"                "status"                           "ano_ingresso"                    
+[28] "periodo_ingresso"                 "ano_integralizacao"               "periodo_integralizacao"          
+[31] "ultima_movimentação"              "cota"                             "sex"                             
+[34] "Sergipe"                          "concluded"                        "quotas"                          
+[37] "aproved"                          "reproved"                         "equivalence" 
+
+["matricula", "nome", "Idade_no_ingresso", "ano_ingresso", "ano_integralizacao", "sex", "Sergipe", "uf_naturalidade", "pais_naturalidade", "quotas", "n_periodos", "nota_med", "aproved", "reproved", "equivalence", "quit1", "quit2", "concluded"]
+
+["registration", "name", "admission_age", "entry_year", "conclusion_year", "sex", "Sergipe", "naturalness", "nationality", "quotas", "n_periods", "avg_note", "aproved", "reproved", "equivalence", "quit1", "quit2", "concluded"]
+
+
+[c("matricula", "nome", "Idade_no_ingresso", "ano_ingresso", "ano_integralizacao", "sex", "Sergipe", "uf_naturalidade", "pais_naturalidade", "quotas", "n_periodos", "nota_med", "aproved", "reproved", "equivalence", "quit1", "quit2", "concluded")]
