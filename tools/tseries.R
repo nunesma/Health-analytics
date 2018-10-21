@@ -20,3 +20,26 @@ minute(x) <- 07
 with_tz(x, tz = "Europe/London")
 y <- ymd_hm('2015-12-12 09:45', tz = 'Europe/Prague')
 x - y
+
+# exercice 2
+set.seed(44)
+x = cumsum(rnorm(n = 450))
+walk <- ts(x, start = c(1914, 11), frequency = 12)
+plot(walk)
+library(lattice)
+xyplot.ts(walk)
+
+# exercice 3
+
+library(forecast)
+
+data("AirPassengers")
+
+class(AirPassengers)
+plot(AirPassengers)
+time(AirPassengers)
+head(AirPassengers)
+
+seasonplot(AirPassengers)
+seasonplot(AirPassengers, type = "l", col=rainbow(12), labelgap = 0.35, bty = "7", year.labels=TRUE)
+?seasonplot()
