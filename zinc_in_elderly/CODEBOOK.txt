@@ -1,6 +1,7 @@
+Zinc in Elderly Project
 zinc_in_elderly
 
-assessment of zinc concentration in elderly patients hospitalized in a general hospital
+Assessment of zinc concentration in elderly patients hospitalized in a general hospital
 
 concentration of zinc in elderly patients hospitalized in a general hospital
 
