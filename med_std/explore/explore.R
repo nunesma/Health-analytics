@@ -35,6 +35,7 @@ colnames(banco) <- c("registration", "name", "admission_age", "entry_year", "ent
 # "aproved", "reproved", "equivalence", "quit1", "quit2", "concluded"
 
 library(FSA)
+library(reshape)
 tapply(banco$aproved, banco$concluded, mean)
 Summarize(banco$aproved)
 hist(banco$aproved)
@@ -52,4 +53,10 @@ hist(banco$n_periods)
 hist(banco$avg_note)
 
 
-
+table(banco$sex)
+table(banco$entry_semester,banco$sex)
+sex_series <- data.frame(table(banco$entry_semester,banco$sex))
+sex_series <- cast(sex_series, Var1 ~ Var2, value = 'Freq')
+sex_series$Var1 <- as.numeric(sex_series$Var1)
+plot(sex_series$Female ~ sex_series$Var1, type = 'l', ylim = c(0,50))
+str(sex_series)
