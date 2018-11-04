@@ -20,12 +20,19 @@ banco$quit2 <- banco$CANCELADO + banco$DESISTENCIA + banco$EXCLUIDA + banco$TRAN
 banco$quit1 <- banco$TRANCADO
 banco$reproved <- banco$REP..FALTA + banco$REPROVADO + banco$REPROVADO.POR.MÉDIA.E.POR.FALTAS
 banco$equivalence <- banco$DISPENSADO
-
 banco <- banco[c("matricula", "nome", "Idade_no_ingresso", "ano_ingresso", "entry_semester", "ano_integralizacao","sex", "Sergipe", "uf_naturalidade", "pais_naturalidade", "quotas", "n_periodos", "nota_med", "aproved", "reproved", "equivalence", "quit1", "quit2", "concluded")]
 
 colnames(banco) <- c("registration", "name", "admission_age", "entry_year", "entry_semester",  "conclusion_year", 
                      "sex", "Sergipe", "naturalness", "nationality", "quotas", "n_periods", "avg_note", "aproved", 
                      "reproved", "equivalence", "quit1", "quit2", "concluded")
+
+# "registration", "name", "admission_age", "entry_year", "entry_semester",  "conclusion_year", 
+# "sex", "Sergipe", "naturalness", "nationality", "quotas", "n_periods", "avg_note", "aproved", 
+# "reproved", "equivalence", "quit1", "quit2", "concluded"
+
+#  "admission_age", "n_periods", "avg_note"
+# "sex", "Sergipe", "naturalness", "nationality", "quotas"
+# "aproved", "reproved", "equivalence", "quit1", "quit2", "concluded"
 
 library(FSA)
 tapply(banco$aproved, banco$concluded, mean)
@@ -33,7 +40,16 @@ Summarize(banco$aproved)
 hist(banco$aproved)
 boxplot(banco$aproved)
 
+summary(banco)
 
+
+Summarize(banco$admission_age)
+Summarize(banco$n_periods)
+Summarize(banco$avg_note)
+
+hist(banco$admission_age)
+hist(banco$n_periods)
+hist(banco$avg_note)
 
 
 
