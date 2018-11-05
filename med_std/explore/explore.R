@@ -91,5 +91,17 @@ apc_maxCI <- -1 + 10 ** (estimate + (t*se)); apc_maxCI # anual percent change (T
 
 # getAnywhere(prais_winsten())
 
+ind_aproved <- data.frame(tapply(banco$aproved, banco$entry_semester, mean))
 
+ind_aproved
 
+correction <- c(12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1)
+
+str(ind_aproved)
+cor_aproved <- ind_aproved$tapply.banco.aproved..banco.entry_semester..mean./correction
+
+cor_aproved
+i_aproved <- data.frame(sex_series$sem, cor_aproved)
+colnames(i_aproved) <- c("sem", "aproved")
+
+plot(aproved ~ sem, i_aproved, type = "l", ylim = c(0.0, 7.0))
