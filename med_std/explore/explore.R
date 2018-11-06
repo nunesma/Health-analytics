@@ -105,3 +105,54 @@ i_aproved <- data.frame(sex_series$sem, cor_aproved)
 colnames(i_aproved) <- c("sem", "aproved")
 
 plot(aproved ~ sem, i_aproved, type = "l", ylim = c(0.0, 7.0))
+
+### reproved
+ind_reproved <- data.frame(tapply(banco$reproved, banco$entry_semester, mean))
+plot(ind_reproved$tapply.banco.reproved..banco.entry_semester..mean. ~ sex_series$sem, type = "l", ylim = c(0.0, 1.0))
+coreaproved <- ind_reproved$tapply.banco.reproved..banco.entry_semester..mean./correction
+
+coreaproved
+i_reproved <- data.frame(sex_series$sem, coreaproved)
+colnames(i_reproved) <- c("sem", "reproved")
+plot(reproved ~ sem, i_reproved, type = "l", ylim = c(0.0, 0.2))
+
+
+
+grid() # Draw gridlines
+f3 <- rep(1/3, 3)# average of current sample and 2 previous samples (green)
+f4 <- rep(1/4, 4)# average of current sample and 3 previous samples (blue)
+y_lag3 <- filter(i_reproved$reproved, f3, sides=1)
+y_lag4 <- filter(i_reproved$reproved, f4, sides=1)
+lines(sex_series$sem, y_lag3, col="green") # calculating a moving average
+lines(sex_series$sem, y_lag4, col="blue", lwd = 6) # calculating a moving average
+
+
+### equivalence
+ind_equivalence <- data.frame(tapply(banco$equivalence, banco$entry_semester, mean))
+plot(ind_equivalence$tapply.banco.equivalence..banco.entry_semester..mean. ~ sex_series$sem, type = "l", ylim = c(0.0, 7.0))
+cor_equivalence <- ind_equivalence$tapply.banco.equivalence..banco.entry_semester..mean./correction
+
+cor_equivalence
+i_equivalence <- data.frame(sex_series$sem, cor_equivalence)
+colnames(i_equivalence) <- c("sem", "equivalence")
+plot(equivalence ~ sem, i_equivalence, type = "l", ylim = c(0.0, 4.0))
+
+i_equivalence <- data.frame(sex_series$sem, ind_equivalence$tapply.banco.equivalence..banco.entry_semester..mean.)
+colnames(i_equivalence) <- c("sem", "equivalence")
+plot(equivalence ~ sem, i_equivalence, type = "l", ylim = c(0.0, 7.0))
+
+
+
+grid() # Draw gridlines
+f3 <- rep(1/3, 3)# average of current sample and 2 previous samples (green)
+f4 <- rep(1/4, 4)# average of current sample and 3 previous samples (blue)
+y_lag3 <- filter(i_equivalence$equivalence, f3, sides=1)
+y_lag4 <- filter(i_equivalence$equivalence, f4, sides=1)
+lines(sex_series$sem, y_lag3, col="green") # calculating a moving average
+lines(sex_series$sem, y_lag4, col="blue", lwd = 6) # calculating a moving average
+
+source('utils.R')
+# mov_avg(vec_ind, vec_time, n)
+mov_avg(sex_series$Male,sex_series$sem, 3)
+# apc(dataset, est)
+apc(sex_series, result)
