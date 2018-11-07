@@ -55,18 +55,6 @@ table(banco$entry_semester,banco$sex)
 sex_series <- data.frame(table(banco$entry_semester,banco$sex))
 sex_series <- cast(sex_series, Var1 ~ Var2, value = 'Freq')
 sex_series$sem <- as.numeric(as.character(sex_series$Var1))
-# plot(sex_series$Female ~ sex_series$Var1, type = 'l', ylim = c(0,50))
-plot(sex_series$female ~ sex_series$sem, type = 'l', ylim = c(0,1), lwd = 6)
-grid() # Draw gridlines
-f2 <- rep(1/2, 2)# average of current sample and 1 previous samples (red)
-f3 <- rep(1/3, 3)# average of current sample and 2 previous samples (green)
-f4 <- rep(1/4, 4)# average of current sample and 3 previous samples (blue)
-y_lag <- filter(sex_series$female, f2, sides=1)
-y_lag3 <- filter(sex_series$female, f3, sides=1)
-y_lag4 <- filter(sex_series$female, f4, sides=1)
-lines(sex_series$sem, y_lag, col="red") # calculating a moving average
-lines(sex_series$sem, y_lag3, col="green") # calculating a moving average
-lines(sex_series$sem, y_lag4, col="blue", lwd = 6) # calculating a moving average
 
 str(sex_series)
 table(sex_series$sem)
@@ -82,12 +70,6 @@ sex_series$log_female <- log10(sex_series$female)
 pw<- prais_winsten(sex_series$log_female ~ sex_series$sem)
 result <- summary(pw)
 
-estimate <- result$coefficients[2,1] # getting estimate from prais coefficients summary
-apc <- -1 + 10 ** estimate; apc # anual percent change (Taxa de incremento anual)
-t <- qt(1 - .025, nrow(sex_series)) # getting t-value for confidence interval
-se <- result$coefficients[2,2] # getting standard error from prais coefficients summary
-apc_minCI <- -1 + 10 ** (estimate - (t*se)); apc_minCI # anual percent change (Taxa de incremento anual)
-apc_maxCI <- -1 + 10 ** (estimate + (t*se)); apc_maxCI # anual percent change (Taxa de incremento anual)
 
 # getAnywhere(prais_winsten())
 
@@ -118,14 +100,6 @@ plot(reproved ~ sem, i_reproved, type = "l", ylim = c(0.0, 0.2))
 
 
 
-grid() # Draw gridlines
-f3 <- rep(1/3, 3)# average of current sample and 2 previous samples (green)
-f4 <- rep(1/4, 4)# average of current sample and 3 previous samples (blue)
-y_lag3 <- filter(i_reproved$reproved, f3, sides=1)
-y_lag4 <- filter(i_reproved$reproved, f4, sides=1)
-lines(sex_series$sem, y_lag3, col="green") # calculating a moving average
-lines(sex_series$sem, y_lag4, col="blue", lwd = 6) # calculating a moving average
-
 
 ### equivalence
 ind_equivalence <- data.frame(tapply(banco$equivalence, banco$entry_semester, mean))
@@ -143,13 +117,6 @@ plot(equivalence ~ sem, i_equivalence, type = "l", ylim = c(0.0, 7.0))
 
 
 
-grid() # Draw gridlines
-f3 <- rep(1/3, 3)# average of current sample and 2 previous samples (green)
-f4 <- rep(1/4, 4)# average of current sample and 3 previous samples (blue)
-y_lag3 <- filter(i_equivalence$equivalence, f3, sides=1)
-y_lag4 <- filter(i_equivalence$equivalence, f4, sides=1)
-lines(sex_series$sem, y_lag3, col="green") # calculating a moving average
-lines(sex_series$sem, y_lag4, col="blue", lwd = 6) # calculating a moving average
 
 source('utils.R')
 # mov_avg(vec_ind, vec_time, n)
