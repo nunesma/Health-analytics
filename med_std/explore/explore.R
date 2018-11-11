@@ -3,6 +3,7 @@ setwd("C:/Users/nunes/AI/ml/Health-analytics/med_std/explore")
 library(FSA)
 library(reshape)
 library(prais)
+source('utils.R')
 
 # banco = read.csv("def1.csv")
 def = read.csv("def.csv")
@@ -117,9 +118,39 @@ plot(equivalence ~ sem, i_equivalence, type = "l", ylim = c(0.0, 7.0))
 
 
 
-
+############################
 source('utils.R')
 # mov_avg(vec_ind, vec_time, n)
 mov_avg(sex_series$Male,sex_series$sem, 3)
 # apc(dataset, est)
 apc(sex_series, result)
+
+
+# "entry_semester", "n_periods", "avg_note"
+# "aproved", "reproved", "equivalence", "quit1", "quit2", "concluded"
+
+# correction <- c(12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1)
+# correction <- c(11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1)
+correction <- c(10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1.166381)
+
+sem <- data.frame(table(banco$entry_semester))
+colnames(sem) <- c('sem', 'freq_sem')
+sem$sem <- as.numeric(as.character(sem$sem))
+
+
+aproved <- as.numeric(tapply(banco$aproved, banco$entry_semester, sum))
+reproved <- as.numeric(tapply(banco$reproved, banco$entry_semester, sum))
+equivalence <- as.numeric(tapply(banco$equivalence, banco$entry_semester, sum))
+quit1 <- as.numeric(tapply(banco$quit1, banco$entry_semester, sum))
+quit2 <- as.numeric(tapply(banco$quit2, banco$entry_semester, sum))
+
+
+aproved_mean <- aproved/sem$freq_sem
+aproved_cor <- aproved/correction
+aproved_mcor <- aproved_mean/correction
+
+
+plot(sem$sem, aproved, type = 'l')
+plot(sem$sem, aproved_mean, type = 'l')
+plot(sem$sem, aproved_cor, type = 'l')
+plot(sem$sem, aproved_mcor, type = 'l')
