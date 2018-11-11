@@ -1,15 +1,12 @@
-# dell analytics
-setwd("C:/Users/nunes/AI/ml/Health-analytics/Life_Expectancy_in_the_Elderly/gini")
-
+# packages
 library(FSA)
 library(reshape)
 library(prais)
 source('utils.R')
 
+# dell analytics
+setwd("C:/Users/nunes/AI/ml/Health-analytics/Life_Expectancy_in_the_Elderly/gini")
 gini <- read.csv("gini.csv", sep = ";")
-
-pw<- prais_winsten(sex_series$log_female ~ sex_series$sem)
-result <- summary(pw)
 
 # mov_avg(vec_ind, vec_time, n)
 mov_avg(sex_series$Male,sex_series$sem, 3)
@@ -32,10 +29,9 @@ apc(gini, result)
 attach(gini)
 states <- colnames(gini)
 states <- states[2:29]
-class(states)
 
 for (state in states){
-  vector <- gini[, state]
+  vector <- log10(gini[, state])
   ano <- Ano
   pw<- prais_winsten(vector ~ ano)
   result <- summary(pw)
