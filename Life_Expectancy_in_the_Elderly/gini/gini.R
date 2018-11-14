@@ -39,3 +39,13 @@ for (state in states){
   apc(gini, result)
 }
 
+for (state in states){
+  vector <- log10(gini[, state])
+  ano <- Ano
+  pw<- prais_winsten(vector ~ ano)
+  result <- summary(pw)
+  print(state, quote = F)
+  apc(gini, result)
+  apc <- (c(apc, state))
+}
+
