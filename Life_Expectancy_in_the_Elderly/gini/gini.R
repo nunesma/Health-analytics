@@ -2,7 +2,7 @@
 library(FSA)
 library(reshape)
 library(prais)
-source('utils.R')
+source('utils_gini.R')
 
 # dell analytics
 setwd("C:/Users/nunes/AI/ml/Health-analytics/Life_Expectancy_in_the_Elderly/gini")
@@ -36,16 +36,9 @@ for (state in states){
   pw<- prais_winsten(vector ~ ano)
   result <- summary(pw)
   print(state, quote = F)
-  apc(gini, result)
+  apcF(gini, result)
+  apc <- c(apc, state)
+ 
 }
 
-for (state in states){
-  vector <- log10(gini[, state])
-  ano <- Ano
-  pw<- prais_winsten(vector ~ ano)
-  result <- summary(pw)
-  print(state, quote = F)
-  apc(gini, result)
-  apc <- (c(apc, state))
-}
 
