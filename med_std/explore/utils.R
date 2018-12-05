@@ -38,11 +38,12 @@ apc <- function(dataset, est){
   apc <- -1 + 10 ** estimate # anual percent change (Taxa de incremento anual)
   apc_minCI <- -1 + 10 ** (estimate - (t_value*std_error)) # anual percent change; min IC 
   apc_maxCI <- -1 + 10 ** (estimate + (t_value*std_error)) # anual percent change; max IC
-  
+
   print(paste("APC: ", round(apc, 4), " or ", round(apc*100, 2),"%"),quote=FALSE)
   print(paste("APC-IC95%_minimo: ", round(apc_minCI, 4), " or ", round(apc_minCI*100, 2),"%"),quote=FALSE)
   print(paste("APC-IC95%_maximo: ", round(apc_maxCI, 4), " or ", round(apc_maxCI*100, 2),"%"),quote=FALSE)
 }
+
 
 
 
