@@ -15,11 +15,28 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
-Gini coefficient is a measure of statistical dispersion intended to represent the income or wealth distribution of a nation's residents, and is the most commonly used measurement of inequality.
+Gini coefficient is a measure of statistical dispersion intended to represent the income or wealth distribution of a nation's residents, and is the most commonly used measurement of inequality. It masures the extent to which the distribution of income among individuals within an economy deviates from a perfectly equal distribution. Thus a Gini index of 0 represents perfect equality, while an index of 100 implies perfect inequality.
+
+### Method
+
+To calculate the annual percentage change (APC) of the rates, we used the Prais-Winsten regression, which predicts first-order autocorrelation correction. The dependent variable was the logarithm of the Gini coefficient, and the independent variable was the years of the historical series. The calculation of the annual percentage change of the rates was performed with the following formula: -1+10b = ??. For the calculation of the confidence intervals: ??95 Cl = -1+10(b±t*se), as suggested by Antunes and Waldman.<br><br>
+The values of "b" and standard error (se) were extracted from the regression analysis, and the value of "t" is supplied by the Student's distribution table t. The trend of increase, decrease, or stagnation was expressed as APC, with the respective confidence intervals (95%), and we considered as stationary the trend whose regression coefficient was not different from zero (p > 0.05).<br><br>
+In order to facilitate the visualization of the trends, we reduced the white noise in the graphs of the historical series, using the technique of 3rd order centered moving averages. The trend analysis was performed in R program version 3.5.1 (R Core Team, 2018) and package "prais" (Mohr, 2018).<br><br>
+Referência:<br><br>
+Antunes JLF, Waldman EA. Trends and spatial distribution of deaths of children aged 12-60 months in São Paulo. Bull World Health Organ. 2002 [cited 2017 Sep 30];80(5):391-8.<br><br>
+R Core Team (2018). R: A language and environment for statistical computing. R   Foundation for Statistical Computing, Vienna, Austria. URL   https://www.R-project.org/<br><br>
+Franz X. Mohr (2018). prais: Prais-Winsten Estimator for AR(1) Serial   Correlation. R package version 1.0.0. https://CRAN.R-project.org/package=prais<br><br>
+
 
 ```{r cars}
 summary(cars)
 ```
+
+
+```{r, results='hide'}
+summary(cars)
+```
+
 
 ## Including Plots
 
