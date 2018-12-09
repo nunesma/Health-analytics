@@ -154,3 +154,70 @@ plot(sem$sem, aproved, type = 'l')
 plot(sem$sem, aproved_mean, type = 'l')
 plot(sem$sem, aproved_cor, type = 'l')
 plot(sem$sem, aproved_mcor, type = 'l')
+
+quit1
+# aproved_mean <- aproved/sem$freq_sem
+quit1_cor <- quit1/correction
+# aproved_mcor <- aproved_mean/correction
+
+plot(sem$sem, quit1, type = 'l')
+# plot(sem$sem, aproved_mean, type = 'l')
+plot(sem$sem, quit1_cor, type = 'l')
+# plot(sem$sem, aproved_mcor, type = 'l')
+
+# regression for tendence evaluation
+log_quit1_cor <- log10(quit1_cor)
+pw<- prais_winsten(log_quit1_cor ~ sem$sem)
+result <- summary(pw)
+
+# mov_avg(vec_ind, vec_time, n)
+mov_avg(quit1_cor,sem$sem, 3)
+# apc(dataset, est)
+apc(sem, result)
+
+
+quit1
+# aproved_mean <- aproved/sem$freq_sem
+quit1_cor <- quit1/correction
+# aproved_mcor <- aproved_mean/correction
+
+plot(sem$sem, quit1, type = 'l')
+# plot(sem$sem, aproved_mean, type = 'l')
+plot(sem$sem, quit1_cor, type = 'l')
+# plot(sem$sem, aproved_mcor, type = 'l')
+
+# regression for tendence evaluation
+log_quit1_cor <- log10(quit1_cor)
+pw<- prais_winsten(log_quit1_cor ~ sem$sem)
+result <- summary(pw)
+
+# mov_avg(vec_ind, vec_time, n)
+mov_avg(quit1_cor,sem$sem, 3)
+# apc(dataset, est)
+apc(sem, result)
+
+
+
+
+
+
+reproved
+# aproved_mean <- aproved/sem$freq_sem
+reproved_cor <- reproved/correction
+# aproved_mcor <- aproved_mean/correction
+
+plot(sem$sem, reproved, type = 'l')
+# plot(sem$sem, aproved_mean, type = 'l')
+plot(sem$sem, reproved_cor, type = 'l')
+# plot(sem$sem, aproved_mcor, type = 'l')
+
+
+# regression for tendence evaluation
+log_reproved_cor <- log10(reproved_cor)
+pw<- prais_winsten(log_reproved_cor ~ sem$sem)
+result <- summary(pw)
+
+# mov_avg(vec_ind, vec_time, n)
+mov_avg(reproved_cor,sem$sem, 3)
+# apc(dataset, est)
+apc(sem, result)
