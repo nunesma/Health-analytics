@@ -1,8 +1,7 @@
 ## dell analytics
 setwd("C:/Users/nunes/AI/ml/Health-analytics/zinc_in_elderly")
 
-# input data
-zinc <- read.csv("zinc.csv", sep =";")
+
 
 # explore variables
 summary(zinc[,2:9])
