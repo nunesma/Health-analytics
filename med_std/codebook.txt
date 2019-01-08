@@ -296,6 +296,7 @@ Variaveis
 [13] "avg_note"        "aproved"         "reproved"        "equivalence"     "quit1"           "quit2"          
 [19] "concluded"
 
+Variables:
 registration - number of the student's registration
 name - student's name
 admission_age - student's age at the first period in the course

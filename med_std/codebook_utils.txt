@@ -1,0 +1,17 @@
+
+mov_avg <- function(vec_ind, vec_time, n){
+  
+  ### INPUTS
+  ### arguments definition
+  # vec_ind: vector related to dependent variable
+  # vec_time: vector related to timestamp
+  # n: number of moving average
+
+
+
+apc <- function(dataset, est){
+  
+  ### INPUTS
+  ### arguments definition
+  # dataset: define nrow(dataset)
+  # est: define estimate and standard error using est <- summary(prais_winsten())
