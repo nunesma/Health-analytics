@@ -1,5 +1,6 @@
 ## dell analytics
 setwd("C:/Users/nunes/AI/ml/Health-analytics/zinc_in_elderly")
+setwd("C:/Users/Marco/version-control/data_analysis/Health-analytics/zinc_in_elderly")
 
 
 
@@ -45,6 +46,7 @@ zinc$hlk <- as.numeric(as.character(zinc$hlk) == "yes")
 # correlation matrix
 cor(zinc[,2:9])
 
+
 # simple linear models
 mod1 <- lm(znc ~ age, data = zinc); summary(mod1)
 mod2 <- lm(znc ~ alb, data = zinc); summary(mod2)
@@ -58,4 +60,42 @@ mod7 <- lm(znc ~ hlk, data = zinc); summary(mod7)
 mod8 <- lm(znc ~ age + alb + sex + icu + ren + lbd + hlk, data = zinc); summary(mod8)
 
 
+#### Vera ####
 
+vera <- read.csv("vera.csv", sep = ";")
+str(vera)
+
+hist(vera$Sulfidril_Total); hist(vera$GSH); hist(vera$TBARS); hist(vera$CAT); hist(vera$SOD_hemolisaodo); hist(vera$Razao_SOD.CAT_hemol)
+
+library(FSA)
+
+boxplot(vera$Sulfidril_Total ~ vera$Grupo, ylab = "Sulfidril Total"); 
+boxplot(vera$GSH ~ vera$Grupo, ylab = "GSH"); 
+boxplot(vera$TBARS ~ vera$Grupo, ylab = "TBARS"); 
+boxplot(vera$CAT ~ vera$Grupo, ylab = "CAT"); 
+boxplot(vera$SOD_hemolisaodo ~ vera$Grupo, ylab = "SOD_hemolisaodo"); 
+boxplot(vera$Razao_SOD.CAT_hemol ~ vera$Grupo, ylab = "Razao_SOD.CAT_hemol")
+
+
+Summarize(vera$Sulfidril_Total ~ vera$Grupo, ylab = "Sulfidril Total"); 
+Summarize(vera$GSH ~ vera$Grupo, ylab = "GSH"); 
+Summarize(vera$TBARS ~ vera$Grupo, ylab = "TBARS"); 
+Summarize(vera$CAT ~ vera$Grupo, ylab = "CAT"); 
+Summarize(vera$SOD_hemolisaodo ~ vera$Grupo, ylab = "SOD_hemolisaodo"); 
+Summarize(vera$Razao_SOD.CAT_hemol ~ vera$Grupo, ylab = "Razao_SOD.CAT_hemol")
+
+
+kruskal.test(vera$Sulfidril_Total ~ vera$Grupo); 
+kruskal.test(vera$GSH ~ vera$Grupo); 
+kruskal.test(vera$TBARS ~ vera$Grupo); 
+kruskal.test(vera$CAT ~ vera$Grupo); 
+kruskal.test(vera$SOD_hemolisaodo ~ vera$Grupo); 
+kruskal.test(vera$Razao_SOD.CAT_hemol ~ vera$Grupo)
+
+
+dunnTest(vera$Sulfidril_Total ~ vera$Grupo); 
+dunnTest(vera$GSH ~ vera$Grupo); 
+dunnTest(vera$TBARS ~ vera$Grupo); 
+dunnTest(vera$CAT ~ vera$Grupo); 
+dunnTest(vera$SOD_hemolisaodo ~ vera$Grupo); 
+dunnTest(vera$Razao_SOD.CAT_hemol ~ vera$Grupo)
