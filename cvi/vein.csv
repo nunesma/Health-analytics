@@ -1,0 +1,121 @@
+r;name;age;sex;side;ceap;ceapc;bmi;abd_circum;fsj;sv
+1;Rosalia Lourenço dos Anjos;59;Female;Left;3;Smaller_3;28.14;99;8.2;3.7
+2;Rosalia Lourenço dos Anjos;59;Female;Right;3;Smaller_3;28.14;99;8.5;6.3
+3;Maria José dos Santos Ferreira;50;Female;Left;4;Bigger_4;28.28;98;8.7;3.9
+4;Maria José dos Santos Ferreira;50;Female;Right;5;Bigger_4;28.28;98;11.1;5.5
+5;Marluce da Silva Félix;44;Female;Left;3;Smaller_3;29.68;93;14.2;11.4
+6;Marluce da Silva Félix;44;Female;Right;3;Smaller_3;29.68;93;9.7;3.5
+7;Maria Josefa Santana;58;Female;Right;5;Bigger_4;30.09;112;6.9;6.7
+8;Rosenilva Figueiredo  A dos Santos;32;Female;Right;3;Smaller_3;35.67;110;9.4;7.5
+9;Rosenilva Figueiredo  A dos Santos;32;Female;Left;3;Smaller_3;35.67;110;10.1;6.5
+10;Amalia Maria Conceição;73;Female;Right;6;Bigger_4;32.4;113;14;13
+11;Maria de Fatima Moraes Azevedo;53;Female;Right;4;Bigger_4;33.96;96.5;11.7;8.4
+12;Maria de Fatima Moraes Azevedo;53;Female;Left;4;Bigger_4;33.96;96.5;11;12.7
+13;Maria Luzimar A. Silveira;47;Female;Right;3;Smaller_3;30.02;91.5;12;7.5
+14;Maria Luzimar A. Silveira;47;Female;Left;3;Smaller_3;30.02;91.5;10;4.2
+15;Elisângela do Carmo B Sá;31;Female;Left;3;Smaller_3;30;86;10;5.9
+16;Elisângela do Carmo B Sá;31;Female;Right;3;Smaller_3;30;86;10.9;8
+17;Rosimeire Silva Carvalho;37;Female;Right;3;Smaller_3;38.83;111;12;11.4
+18;Rosimeire Silva Carvalho;37;Female;Left;3;Smaller_3;38.83;111;9.4;8
+19;Cristiano Barreto M Filho;26;Male;Right;3;Smaller_3;26.17;90;9.2;4.7
+20;Cristiano Barreto M Filho;26;Male;Left;3;Smaller_3;26.17;90;7.7;6.3
+21;Maria Elizabete A Azevedo;50;Female;Right;3;Smaller_3;28;98;7.8;4.9
+22;Marcia Gomes Silva;33;Female;Left;3;Smaller_3;31.23;93;5.8;6.9
+23;Pergentino José da Costa;68;Male;Right;6;Bigger_4;25.52;96;8.4;3.2
+24;Pergentino José da Costa;68;Male;Left;4;Bigger_4;25.52;96;8.6;5.9
+25;Josefa de Andrade Conceição;50;Female;Left;5;Bigger_4;30;100;11.7;9.6
+26;Gilvania Barreto Santos;41;Female;Right;2;Smaller_3;25.34;92;12.8;3.5
+27;Maria Magna Oliveira;42;Female;Left;2;Smaller_3;27.48;93;9.1;7.2
+28;Valdenoura Gomes de Sá;53;Female;Left;6;Bigger_4;31.11;98;8.4;5.8
+29;Maria Nivalda Marques;49;Female;Right;3;Smaller_3;25;85;5.9;2.9
+30;Elilde Santos Pereira;42;Female;Right;2;Smaller_3;25.43;77;7.9;4.6
+31;Elilde Santos Pereira;42;Female;Left;2;Smaller_3;25.43;77;7;5.5
+32;Bernadete Mendonça da Cruz;51;Female;Left;3;Smaller_3;30;101;8.6;2
+33;Josefa Rocha Costa;52;Female;Right;3;Smaller_3;34.35;105;7.2;5.3
+34;Josefa Barreto de Azevedo;55;Female;Right;4;Bigger_4;29.5;97;9.5;6.1
+35;Josefa Barreto de Azevedo;55;Female;Left;3;Smaller_3;29.5;97;8.6;4.6
+36;Maria Denilza dos Santos;38;Female;Right;2;Smaller_3;27.91;83;6.7;2.7
+37;Maria José França;58;Female;Right;3;Smaller_3;45;127;20.6;9.1
+38;Maria José França;58;Female;Left;4;Bigger_4;45;127;12.1;6.2
+39;Maria Zélia de Carvalho;69;Female;Right;4;Bigger_4;32.55;113;9.5;4
+40;Maria Zélia de Carvalho;69;Female;Left;4;Bigger_4;32.55;113;8.1;4.4
+41;Maria neuzeilde dos Santos;54;Female;Right;3;Smaller_3;29.71;99;7.5;6.5
+42;Maria José dos Santos Filho;51;Female;Left;2;Smaller_3;30.08;82;5.7;3.6
+43;Maria Aparecida Bezerra;58;Female;Right;3;Smaller_3;36.62;105;10;4.7
+44;Maria Aparecida Bezerra;58;Female;Left;3;Smaller_3;36.62;105;6.6;5.7
+45;Maria Aparecida dos Santos Carneiro;65;Female;Right;2;Smaller_3;25.34;91;9.1;6.3
+46;Josefa Silveira Nunes Vieira Santos;58;Female;Right;4;Bigger_4;36.85;108;4.9;2.6
+47;Josefa Silveira Nunes Vieira Santos;58;Female;Left;4;Bigger_4;36.85;108;8;2.8
+48;Maria Lúcia da Silva Ribeiro;58;Female;Right;4;Bigger_4;28.95;97;11.9;5.1
+49;Adelânia Batista Silva;37;Female;Right;6;Bigger_4;42.45;115;14.3;8.3
+50;Adelânia Batista Silva;37;Female;Left;6;Bigger_4;42.45;115;9.8;5.2
+51;Edilma Pereira da Paixao;44;Female;Right;5;Bigger_4;35.37;101;10.6;9.7
+52;Edilma Pereira da Paixao;44;Female;Left;3;Smaller_3;35.37;101;7;4.3
+53;Paulina da Silva Santos;64;Female;Left;4;Bigger_4;35.2;103;8.9;5.4
+54;Mirabel Santos Dias;64;Female;Right;3;Smaller_3;27.74;86;11.3;6.9
+55;Selma Santos Souza;54;Female;Left;3;Smaller_3;33.94;110;7.8;2.8
+56;Selma Santos Souza;54;Female;Right;3;Smaller_3;33.94;110;7.4;4.1
+57;Maria Aparecida de Jesus;51;Female;Right;4;Bigger_4;38.1;114;14.6;9.9
+58;Maria Aparecida de Jesus;51;Female;Left;3;Smaller_3;38.1;114;7.3;5
+59;Maria de Lourdes da Conceição;62;Female;Left;4;Bigger_4;28.41;98;9.9;2.5
+60;Gizelda Rodrigues O Melo;53;Female;Left;4;Bigger_4;31.7;91;6.8;4.6
+61;Gizelda Rodrigues O Melo;53;Female;Right;4;Bigger_4;31.7;91;6.7;2.9
+62;Claudia Assunção das Neves;33;Female;Right;3;Smaller_3;35.13;123;9;6.9
+63;Clenilce Menezes dos Santos;36;Female;Right;6;Bigger_4;29.77;94;13;9.6
+64;Clenilce Menezes dos Santos;36;Female;Left;3;Smaller_3;29.77;94;9.4;6.9
+65;Raimunda de Oliveira Lima;66;Female;Left;4;Bigger_4;32.9;105;10.3;3.9
+66;Raimunda de Oliveira Lima;66;Female;Right;4;Bigger_4;32.9;105;6.1;3.1
+67;Cleilde Santos de Oliveira;49;Female;Left;4;Bigger_4;31.24;100;7;6
+68;Cleilde Santos de Oliveira;49;Female;Right;6;Bigger_4;31.24;100;13;12.5
+69;Joseli Ramos;64;Female;Right;4;Bigger_4;30;100;8.9;3.2
+70;Joseli Ramos;64;Female;Left;4;Bigger_4;30;100;8.5;3.6
+71;Raimunda Freire Santos;49;Female;Right;4;Bigger_4;25;86;11.3;6.9
+72;Gilvania Maria da Silva Cruz;37;Female;Right;4;Bigger_4;29.68;100;6.9;3.6
+73;Maria do Espirito Santo Oliveira;65;Female;Left;2;Smaller_3;29.87;92;8.9;3.5
+74;Sandra Alves Nobre dos Santos;39;Female;Left;3;Smaller_3;31.4;96;7.9;3.4
+75;Sandra Alves Nobre dos Santos;39;Female;Right;3;Smaller_3;31.4;96;7.9;6.2
+76;Maria de Lima Feitosa;79;Female;Left;3;Smaller_3;26;95;8.7;8.5
+77;Maria Arlete de Souza Seixas;69;Female;Left;3;Smaller_3;29.43;95;16.2;8.2
+78;Maria Arlete de Souza Seixas;69;Female;Right;3;Smaller_3;29.43;95;8.8;6.8
+79;Gilvanete Soares dos Santos;51;Female;Right;3;Smaller_3;31.79;102.5;10.6;7.3
+80;Gilvanete Soares dos Santos;51;Female;Left;3;Smaller_3;31.79;102.5;6.9;4.4
+81;Maria Lucia Carvalho de Oliveir;57;Female;Right;3;Smaller_3;44.25;121;10.3;3.7
+82;Maria Lucia Carvalho de Oliveir;57;Female;Left;3;Smaller_3;44.25;121;8.8;6
+83;Edilene Lima da Conceição;44;Female;Left;5;Bigger_4;44.06;117;12.5;6.4
+84;Edilene Lima da Conceição;44;Female;Right;3;Smaller_3;44.06;117;6.9;4.5
+85;Eleonora Batista dos Santos;58;Female;Left;6;Bigger_4;42.38;123;11.4;9
+86;Maria Euda de Jesus Barreto;62;Female;Right;2;Smaller_3;31;102;11.1;5.7
+87;Maria de Fatima Carlos de Jesus;49;Female;Left;3;Smaller_3;31.6;91;6.8;3
+88;Maria Nazareth Santos;75;Female;Left;5;Bigger_4;30.22;109;7.9;7.3
+89;Gilvanda Alves da Gama Bispo;49;Female;Right;4;Bigger_4;31.1;95;7.1;4.2
+90;Gilvanda Alves da Gama Bispo;49;Female;Left;4;Bigger_4;31.1;95;12.8;7.1
+91;Marluce Goes Ribeiro;50;Female;Left;2;Smaller_3;28.51;93.5;4.3;2.7
+92;Marluce Goes Ribeiro;50;Female;Right;2;Smaller_3;28.51;93.5;3.6;2.7
+93;Marinalva Lima de Siqueira;47;Female;Right;4;Bigger_4;30;98;10.9;7.7
+94;Maria da Conceição dos S Azevedo;50;Female;Right;2;Smaller_3;40;123;7.3;5.6
+95;Maria da Conceição dos S Azevedo;50;Female;Left;3;Smaller_3;40;123;7.2;6.3
+96;Acacio Gonçalves;57;Male;Right;4;Bigger_4;29.51;98;8.3;7.1
+97;Maria José Barbosa da Silva;50;Female;Right;3;Smaller_3;32.9;105;9.4;7.2
+98;Silvânia dos Santos ;38;Female;Right;3;Smaller_3;33.96;90.3;6.1;10.3
+99;Silvânia dos Santos ;38;Female;Left;3;Smaller_3;33.96;90.3;5.4;5
+100;Izabelita Nunes Soares;26;Female;Left;2;Smaller_3;31.2;85;8;2.9
+101;Maria Dias De Almeida;46;Female;Right;3;Smaller_3;44.95;122;9.9;7.3
+102;Elida de Souza Santos;37;Female;Right;3;Smaller_3;38.08;103;7.5;3.5
+103;Maria Ednalva Leite de Souza;51;Female;Right;2;Smaller_3;33.03;89;5.5;4.3
+104;Maria Augusta Meneses Santos;41;Female;Right;4;Bigger_4;33.08;100;11.1;12.4
+105;Maria da Cunha da Silva;57;Female;Left;3;Smaller_3;31.03;96;10.2;6
+106;Maria Oliveira da Silva;49;Female;Right;5;Bigger_4;34.87;105;11.8;9.5
+107;Maria Auxiliadora de Moura;64;Female;Right;3;Smaller_3;26.4;94;6.2;4.1
+108;Helenita da Silva Souza;53;Female;Left;5;Bigger_4;41.7;125;11.5;8.5
+109;Maria Ivone Assis de Oliveira;59;Female;Right;3;Smaller_3;34;98;8.1;2.9
+110;Marli Hipólito da Silva;57;Female;Left;5;Bigger_4;30.4;105;10.8;6.6
+111;Vanuza Costa Santos;26;Female;Right;3;Smaller_3;29.17;88.5;8;6
+112;Reginaldo Batista Andrade;38;Male;Right;4;Bigger_4;42.5;127;10.1;8.1
+113;Maria Denilza dos Santos;38;Female;Right;2;Smaller_3;27.91;83;6.7;2.7
+114;Maria Denilza dos Santos;38;Female;Left;2;Smaller_3;27.91;83;8.1;4.2
+115;Maria José Barbosa da Silva;50;Female;Left;3;Smaller_3;32.9;105;6.9;17.6
+116;Maria Cícera dos Santos;72;Female;Left;3;Smaller_3;30;92;8;6.7
+117;Izabelita Nunes Soares;26;Female;Right;2;Smaller_3;31.2;85;7.7;3.7
+118;Maria Dias De Almeida;46;Female;Left;3;Smaller_3;44.95;122;9;3.6
+119;Maria Cícera dos Santos;72;Female;Right;3;Smaller_3;30;92;6.9;3.1
+120;Eleonora Batista dos Santos;58;Female;Right;5;Bigger_4;42.38;123;8.7;10.2
