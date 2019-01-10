@@ -16,6 +16,7 @@ Variables:
 - CEAP classification ceap
 - CEAP classification ceap
 - Body mass index bmi
+- Body mass index categorizied bmic
 - Abdominal circumference abd_circum
 - Venous diameter at the femoral saphenous junction fsj
 - Venous diameter at the saphenous femoral sv
